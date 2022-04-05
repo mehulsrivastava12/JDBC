@@ -76,17 +76,13 @@ public class Employee {
     }
     public static void main(String[] args) {
         ArrayList<Employee> staffs = new ArrayList<>();
-        String url="jdbc:mysql://localhost:3306/employees",user="root",password="Mehul@1234";
+        String query="Select * from employees";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url,user,password);
-            Statement st=con.createStatement();
-            ResultSet rs = st.executeQuery("Select * from employees");
+            ResultSet rs = Conn.connection(query);
             while (rs.next()) {
                 Employee people = new Employee(rs.getInt(1),rs.getDate(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDate(6));
                 staffs.add(people);
             }
-            con.close();
             System.out.println(staffs);
         }
         catch(Exception e){
