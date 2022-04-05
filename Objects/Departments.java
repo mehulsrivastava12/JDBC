@@ -39,7 +39,7 @@ public class Departments {
                 Departments d=new Departments(rs.getString(1), rs.getString(2));
                 dept.add(d);
             }
-            System.out.println(dept);
+            System.out.println(dept+"\n");
         } catch (Exception e) {
             e.printStackTrace();
         }

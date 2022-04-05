@@ -65,7 +65,7 @@ public class Dept_manager {
                 manager.add(man);
             }
 
-            System.out.println(manager);
+            System.out.println(manager+"\n");
         }
         catch(Exception e){
             e.printStackTrace();

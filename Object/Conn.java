@@ -1,4 +1,4 @@
-package Objects;
+package Object;
 import java.sql.*;
 public class Conn {
     static public ResultSet connection(String query){
@@ -15,3 +15,4 @@ public class Conn {
         return null;
     }
 }
+

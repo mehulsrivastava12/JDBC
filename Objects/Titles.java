@@ -53,18 +53,14 @@ public class Titles {
     }
     public static void main(String[] args) {
         ArrayList<Titles> ti = new ArrayList<>();
-        String url="jdbc:mysql://localhost:3306/employees",user="root",password="Mehul@1234";
+        String query="Select * from titles";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Con con = DriverManager.getConnection(url,user,password);
-            Statement st=con.createStatement();
-            ResultSet rs = st.executeQuery("Select * from titles");
+            ResultSet rs = Conn.connection(query);
             while (rs.next()) {
                 Titles t = new Titles(rs.getInt(1),rs.getString(2),rs.getDate(3),rs.getDate(4));
                 ti.add(t);
             }
-            con.close();
-            System.out.println(ti);
+            System.out.println(ti+"\n");
         }
         catch(Exception e){
             e.printStackTrace();

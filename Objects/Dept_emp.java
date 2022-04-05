@@ -61,7 +61,7 @@ public class Dept_emp{
                 Dept_manager man = new Dept_manager(rs.getInt(1),rs.getString(2),rs.getDate(3),rs.getDate(4));
                 manager.add(man);
             }
-            System.out.println(manager);
+            System.out.println(manager+"\n");
         }
         catch(Exception e){
             e.printStackTrace();

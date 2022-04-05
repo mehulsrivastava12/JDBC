@@ -53,18 +53,14 @@ public class Salaries {
     }
     public static void main(String[] args) {
         ArrayList<Salaries> sa = new ArrayList<>();
-        String url="jdbc:mysql://localhost:3306/employees",user="root",password="Mehul@1234";
+        String query="Select * from salaries";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Con con = DriverManager.getConnection(url,user,password);
-            Statement st=con.createStatement();
-            ResultSet rs = st.executeQuery("Select * from salaries");
+            ResultSet rs =Conn.connection(query);
             while (rs.next()) {
                 Salaries s = new Salaries(rs.getInt(1),rs.getInt(2),rs.getDate(3),rs.getDate(4));
                 sa.add(s);
             }
-            con.close();
-            System.out.println(sa);
+            System.out.println(sa+"\n");
         }
         catch(Exception e){
             e.printStackTrace();

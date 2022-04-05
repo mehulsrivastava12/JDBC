@@ -83,7 +83,7 @@ public class Employee {
                 Employee people = new Employee(rs.getInt(1),rs.getDate(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDate(6));
                 staffs.add(people);
             }
-            System.out.println(staffs);
+            System.out.println(staffs+"\n");
         }
         catch(Exception e){
             e.printStackTrace();
